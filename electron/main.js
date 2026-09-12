@@ -1,7 +1,7 @@
 import { app, BrowserWindow, ipcMain, safeStorage, shell } from "electron";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
+import { appendFileSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { open } from "node:fs/promises";
 import * as llm from "./llm.js";
 import * as cloud from "./cloud.js";
@@ -10,6 +10,10 @@ import { exportDiagram } from "./export.js";
 const here = dirname(fileURLToPath(import.meta.url));
 const modelDirs = [process.env.FLOWCHART_MODELS, join(app.getPath("userData"), "models"), join(app.isPackaged ? process.resourcesPath : app.getAppPath(), "models")].filter(Boolean);
 const settingsPath = join(app.getPath("userData"), "settings.json");
+const logPath = join(app.getPath("userData"), "flowchart.log");
+const log = (...a) => { const line = a.map(x => typeof x === "string" ? x : JSON.stringify(x)).join(" "); console.log(line); try { appendFileSync(logPath, `${new Date().toISOString()} ${line}\n`); } catch {} };
+process.on("uncaughtException", e => log("uncaught", String(e.stack || e)));
+process.on("unhandledRejection", e => log("unhandled", String(e?.stack || e)));
 
 // settings: { engine: "local"|"cloud", provider, model, baseUrl, apiKey (encrypted, base64) }
 const readSettings = () => { try { return JSON.parse(readFileSync(settingsPath, "utf8")); } catch { return { engine: "local", provider: "anthropic", model: "claude-opus-5" }; } };
@@ -18,8 +22,9 @@ const publicSettings = s => ({ ...s, apiKey: undefined, hasKey: !!s.apiKey, keyH
 let cloudAbort;
 
 app.whenReady().then(async () => {
+  log("start", app.getVersion(), "packaged:", app.isPackaged, "modelDirs:", modelDirs);
   const win = new BrowserWindow({ width: 1280, height: 820, backgroundColor: "#111318", icon: join(here, "../build/icon.png"), webPreferences: { preload: join(here, "preload.cjs") } });
-  const send = (ch, v) => { if (ch === "status" && !v.progress) console.log("[status]", v); if (!win.isDestroyed()) win.webContents.send(ch, v); };
+  const send = (ch, v) => { if (ch === "status" && !v.progress) log("[status]", v); if (!win.isDestroyed()) win.webContents.send(ch, v); };
   if (app.isPackaged) win.loadFile(join(here, "../dist/index.html"));
   else { win.loadURL("http://localhost:5173"); win.webContents.on("console-message", e => e.level !== "info" && console.log("[renderer]", e.message)); }
   win.webContents.setWindowOpenHandler(({ url }) => { shell.openExternal(url); return { action: "deny" }; });

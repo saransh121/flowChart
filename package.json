@@ -54,8 +54,7 @@
       "dist/**",
       "electron/**",
       "package.json",
-      "!node_modules/@node-llama-cpp/*cuda*/**",
-      "!node_modules/node-llama-cpp/llama/**"
+      "!node_modules/@node-llama-cpp/*cuda*/**"
     ],
     "asarUnpack": [
       "node_modules/node-llama-cpp/**",
