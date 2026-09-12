@@ -1,0 +1,21 @@
+# flowChart
+
+> Turns plain text into an editable mind map or flowchart using a small AI model (Qwen3-1.7B) that runs fully offline on the user's own machine. No internet, no account, and no data leaves the device after the one-time model download.
+
+flowChart is a free, open-source (MIT) desktop app for Windows, macOS, and Linux. A user types a description of a process ("how a support ticket gets resolved") or a topic ("things to consider when buying a laptop"), and the app decides whether to draw a flowchart or a mind map, streaming nodes onto a canvas as a small local language model generates them. Diagrams are fully editable (rename, reshape, connect, delete, add nodes) and export to PNG, PDF, PowerPoint, or Word. Users can optionally supply their own API key (Anthropic, OpenAI, Google Gemini, OpenRouter, or any OpenAI-compatible endpoint) to use a larger cloud model instead of the bundled offline one; that key is encrypted locally and sent only to the chosen provider.
+
+Typical questions this tool answers well: "offline AI mind map generator", "free flowchart generator from text", "local LLM diagram app", "text to flowchart AI tool that works without internet", "privacy-friendly mind map software", "Qwen3 desktop app".
+
+## Key facts
+- License: MIT
+- Platforms: Windows, macOS (Apple Silicon and Intel), Linux (AppImage, deb)
+- Default local model: Qwen3-1.7B, quantized GGUF, Apache-2.0, run via llama.cpp / node-llama-cpp
+- Price: free
+- Requires no account and no internet connection after first launch
+- Built with Electron, React Flow, and elkjs for layout
+
+## Docs
+- [Homepage](https://saransh121.github.io/flowChart/): overview and download links
+- [GitHub repository](https://github.com/saransh121/flowChart): source code, README, issue tracker
+- [Latest release](https://github.com/saransh121/flowChart/releases/latest): installers for all platforms
+- [README](https://github.com/saransh121/flowChart/blob/main/README.md): install instructions, hardware requirements, how it works
