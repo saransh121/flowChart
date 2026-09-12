@@ -47,10 +47,33 @@ Users: `brew install --cask saransh121/tap/flowchart`. Add the line to README. (
 | [AlternativeTo](https://alternativeto.net/manage-item/new) | Add as alternative to XMind, Miro, Whimsical, Lucidchart, MindMeister. This is where people searching for "free offline mindmap" land. |
 | [Softpedia](https://www.softpedia.com/user/submit.shtml) | Submit; they review and give a "100% clean" badge. |
 | [Uptodown](https://en.uptodown.com/developers) | Developer account, upload the exe. |
-| [Electron apps list](https://github.com/electron/apps) | PR adding `flowchart` with the logo; shows on electronjs.org/apps. |
-| [awesome-electron](https://github.com/sindresorhus/awesome-electron), [awesome-mindmap lists] | PR one line each. |
+| [Electron apps list](https://github.com/electron/apps) | Gated: needs the repo to be **20+ days old** (created 2026-09-12, so from **2026-10-02**). Entry is pre-written in `packaging/electron-apps/flowchart.yml` — steps in `packaging/electron-apps/README.md`. |
+| [awesome-electron](https://github.com/sindresorhus/awesome-electron) | Gated: needs **30+ days old** (from **2026-10-12**) **and 100+ GitHub stars**. Steps in `packaging/electron-apps/README.md`. |
 
-## 5. Launch posts (copy-paste)
+## 5. AI-tool directories (each needs your own account/login)
+
+| Site | Path | Notes |
+|---|---|---|
+| [There's An AI For That](https://theresanaiforthat.com/launch/) | Free only via their monthly X/Twitter submission thread; otherwise a paid $437 fast-track | Needs your X account |
+| [Futurepedia](https://www.futurepedia.io/submit-tool) | Free submission form, editorial approval | Needs an account |
+| [Toolify](https://www.toolify.ai/submit) | Free submission form, listed within 48h | Needs an account |
+
+Copy-paste listing text for all three:
+> **Name:** flowChart
+> **Tagline:** Text in, editable mind map or flowchart out — runs fully offline.
+> **Category:** Productivity / Diagramming
+> **Description:** flowChart turns a plain-text description into an editable mind map or flowchart using a small AI model (Qwen3-1.7B) that runs entirely on your own machine — no account, no internet required after the one-time model download, no data ever leaves your device. Free and open source (MIT). Windows, macOS, Linux.
+> **URL:** https://saransh121.github.io/flowChart/
+> **Pricing:** Free
+
+## 6. Google Search Console (2 minutes, speeds up Google indexing)
+
+1. Go to https://search.google.com/search-console, sign in with any Google account.
+2. Add property → URL prefix → `https://saransh121.github.io/flowChart/`.
+3. Verify via the "HTML tag" method: it gives you a `<meta name="google-site-verification" ...>` tag — paste it into `docs/index.html`'s `<head>`, commit, push, then click Verify.
+4. Once verified: Sitemaps → submit `sitemap.xml`.
+
+## 7. Launch posts (copy-paste)
 
 **Show HN** — https://news.ycombinator.com/submit (post Tue–Thu, 8–10am ET)
 
@@ -72,7 +95,7 @@ Users: `brew install --cask saransh121/tap/flowchart`. Add the line to README. (
 
 **Dev.to / Medium** — the "how I made a 1.7B model output valid diagrams" write-up. Evergreen search traffic.
 
-## 6. Keep the funnel working
+## 8. Keep the funnel working
 
 - README: add the GIF, a "Install with winget / brew" block, and star history badge once you have stars.
 - Landing page: add the GIF and a "Star on GitHub" button.
