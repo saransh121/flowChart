@@ -1,0 +1,5 @@
+node_modules/
+models/*.gguf
+spike/results*.json
+dist/
+release/
