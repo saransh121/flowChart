@@ -40,7 +40,7 @@ Grab the latest build for your OS from the [Releases page](https://github.com/sa
 |---|---|
 | Windows | `flowChart-<version>-win-x64.exe` (installer) or `.zip` (portable) |
 | macOS | `flowChart-<version>-mac-arm64.dmg` (Apple Silicon) or `-mac-x64.dmg` (Intel) |
-| Linux | `flowChart-<version>-linux-x64.AppImage` or `.deb` |
+| Linux | `flowChart-<version>-linux-x86_64.AppImage` or `-linux-amd64.deb` |
 
 On first launch the app downloads the model once (1.1 GB) into its data folder. After that it never needs the network again.
 
