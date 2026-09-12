@@ -1,0 +1,13 @@
+name: flowChart
+description: 'Turns plain text into an editable mind map or flowchart using a small AI model that runs fully offline.'
+website: 'https://saransh121.github.io/flowChart/'
+repository: 'https://github.com/saransh121/flowChart'
+category: 'Productivity'
+keywords:
+  - mindmap
+  - flowchart
+  - diagram
+  - offline
+  - ai
+  - llm
+license: 'MIT'
