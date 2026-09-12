@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>flowChart – text to mind map or flowchart, fully offline</title>
+<meta name="description" content="Type what you mean, get an editable mind map or flowchart. A tiny AI model runs on your own machine. Free, open source, Windows / macOS / Linux.">
+<meta property="og:title" content="flowChart – text to diagram, fully offline">
+<meta property="og:description" content="Type what you mean, get an editable mind map or flowchart. No internet, no account, no data leaves your machine.">
+<meta property="og:image" content="https://saransh121.github.io/flowChart/logo.svg">
+<link rel="icon" href="logo.svg">
+<style>
+  :root { color-scheme: dark; --bg: #111318; --panel: #1a1d24; --fg: #e6e6e6; --muted: #8b90a0; --accent: #6c8cff; --border: #3a4050; --ok: #5ec66a; --warn: #f0b34a; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.55 system-ui, sans-serif; background: var(--bg); color: var(--fg); padding: 0 16px; }
+  .wrap { max-width: 900px; margin: 0 auto; padding-block: 48px; }
+  header { text-align: center; }
+  header img { width: 96px; height: 96px; }
+  h1 { font-size: 40px; margin: 12px 0 8px; }
+  .tag { color: var(--muted); font-size: 19px; max-width: 620px; margin: 0 auto 28px; }
+  .dl { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .dl a { padding: 12px 20px; border-radius: 10px; background: var(--accent); color: white; text-decoration: none; font-weight: 600; }
+  .dl a.alt { background: transparent; border: 1px solid var(--border); color: var(--fg); }
+  .note { text-align: center; color: var(--muted); font-size: 13px; margin-top: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 44px; }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+  .card h3 { margin: 0 0 6px; font-size: 16px; } .card p { margin: 0; color: var(--muted); font-size: 14px; }
+  .demo { margin-top: 44px; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 18px; font-family: ui-monospace, monospace; font-size: 14px; }
+  .demo .in { color: var(--muted); } .demo .out { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .n { padding: 4px 10px; border-radius: 6px; background: #232733; border: 1px solid var(--border); font-family: system-ui; font-size: 13px; }
+  .n.s { border-radius: 999px; border-color: var(--ok); } .n.d { background: var(--warn); color: #1a1400; border: 0; }
+  .arrow { color: var(--muted); }
+  footer { margin-top: 48px; text-align: center; color: var(--muted); font-size: 13px; }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="logo.svg" alt="flowChart logo">
+    <h1>flowChart</h1>
+    <p class="tag">Type what you mean. Get an editable mind map or flowchart. No internet, no account, no data leaves your machine.</p>
+    <div class="dl">
+      <a href="https://github.com/saransh121/flowChart/releases/latest">Download for Windows, macOS or Linux</a>
+      <a class="alt" href="https://github.com/saransh121/flowChart">Source on GitHub</a>
+    </div>
+    <p class="note">Free and open source (MIT). First launch downloads the 1.1 GB model once, then it works offline forever.</p>
+  </header>
+
+  <div class="demo">
+    <div class="in">&gt; how a support ticket gets resolved</div>
+    <div class="out">
+      <span class="n s">Start</span><span class="arrow">→</span><span class="n">Receive ticket</span><span class="arrow">→</span><span class="n">Assign agent</span><span class="arrow">→</span><span class="n d">Resolved?</span><span class="arrow">yes →</span><span class="n">Close ticket</span><span class="arrow">→</span><span class="n s">End</span>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card"><h3>Runs on your laptop</h3><p>A 1.7B-parameter open model (Qwen3, Apache-2.0) through llama.cpp. Uses your GPU when there is one, CPU otherwise.</p></div>
+    <div class="card"><h3>Streams onto the canvas</h3><p>Nodes appear and lay themselves out while the model is still writing.</p></div>
+    <div class="card"><h3>Actually editable</h3><p>Rename, change shapes (start, step, decision, end), connect, delete, add. It is a real diagram, not a picture.</p></div>
+    <div class="card"><h3>Export anywhere</h3><p>PNG, PDF, PowerPoint, Word.</p></div>
+    <div class="card"><h3>Bring your own model</h3><p>Optional: paste an Anthropic, OpenAI, Gemini or OpenRouter key for richer diagrams. Stored encrypted, sent only to that provider.</p></div>
+    <div class="card"><h3>Private by design</h3><p>No telemetry, no account, no server. Read the code.</p></div>
+  </div>
+
+  <footer>
+    Made by <a href="https://github.com/saransh121">saransh121</a> · <a href="https://github.com/saransh121/flowChart/issues">Report a bug</a>
+  </footer>
+</div>
+</body>
+</html>
