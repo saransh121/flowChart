@@ -27,12 +27,19 @@
 
 ## Install
 
+Package managers (after the manifests land):
+
+```bash
+winget install saransh121.flowChart          # Windows
+brew install --cask saransh121/tap/flowchart  # macOS
+```
+
 Grab the latest build for your OS from the [Releases page](https://github.com/saransh121/flowChart/releases/latest):
 
 | OS | File |
 |---|---|
 | Windows | `flowChart-<version>-win-x64.exe` (installer) or `.zip` (portable) |
-| macOS | `flowChart-<version>-mac-arm64.dmg` / `-x64.dmg` |
+| macOS | `flowChart-<version>-mac-arm64.dmg` (Apple Silicon) or `-mac-x64.dmg` (Intel) |
 | Linux | `flowChart-<version>-linux-x64.AppImage` or `.deb` |
 
 On first launch the app downloads the model once (1.1 GB) into its data folder. After that it never needs the network again.
@@ -58,6 +65,10 @@ Qwen3 0.6B (400 MB) is 2.5x faster and fine for simple diagrams. Anything that c
 | NVIDIA / AMD dedicated GPU | much faster, auto-detected |
 
 CPU-only with 8 GB RAM and the 1.7B model is slow. Use the 0.6B model there.
+
+## Spread the word
+
+See [docs/LAUNCH.md](docs/LAUNCH.md) for the winget / Homebrew / store submission steps and ready-to-paste launch posts.
 
 ## Development
 
